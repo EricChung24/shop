@@ -1,24 +1,33 @@
-//我要進入images資料夾，並且引入avatar.svg圖片
 import avatar from "../../assets/images/avatar.svg";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className=" w-full  shadow ">
-      <div className="container mx-auto px-16 py-4 flex justify-between items-center">
+    <header className="w-full shadow">
+      <div className="container mx-auto flex items-center justify-between px-16 py-4">
         {/* 左邊 */}
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold text-gray-800">Shop</h1>
+          <h1 className="text-2xl font-bold font-serif text-gray-800">
+            <Link to="/">StoryShop</Link>
+          </h1>
+
           <nav>
             <ul className="flex text-gray-700">
               <li className="ml-12">
-                <a href="#" className="hover:text-yellow-400 font-extrabold">
+                <Link
+                  to="/products"
+                  className="font-serif font-extrabold hover:text-yellow-400"
+                >
                   商品列表
-                </a>
+                </Link>
               </li>
               <li className="ml-12">
-                <a href="#" className="hover:text-yellow-400 font-extrabold">
+                <Link
+                  to="/story"
+                  className=" font-serif font-extrabold hover:text-yellow-400"
+                >
                   品牌故事
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -26,9 +35,9 @@ function Header() {
 
         {/* 右邊 */}
         <div>
-          <a href="#" className="text-gray-700 hover:text-blue-600 ml-auto ">
+          <Link to="/profile" className="ml-auto text-gray-700 hover:text-blue-600">
             <img src={avatar} width={30} height={30} alt="User Avatar" />
-          </a>
+          </Link>
         </div>
       </div>
     </header>
