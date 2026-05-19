@@ -93,10 +93,20 @@ function Home() {
           立即選購
         </button>
       </div>
-
-      <h2 className="mb-4 text-center text-6xl font-bold">New Arrival</h2>
-      <p className="text-center text-4xl">新品上市</p>
-
+<div className="mb-8 px-6 text-center">
+      
+              <p className="mb-3 text-xl font-semibold tracking-[0.4em] text-[#C97A20]">
+              New Arrivals
+            </p>
+            <h2 className="text-3xl font-black tracking-[0.12em] text-[#3A2A1A] md:text-5xl">
+              新品上市
+            </h2>
+             <div className="mx-auto mt-5 flex w-fit items-center gap-3">
+              <span className="h-px w-10 bg-[#cfa06f]" />
+              <span className="h-2.5 w-2.5 rounded-full border border-[#b8752d] bg-[#E9A23B]" />
+              <span className="h-px w-20 bg-[#cfa06f]" />
+            </div>
+</div>
       <section className="mb-20 py-10">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-2 gap-x-8 gap-y-10">
@@ -115,31 +125,28 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-black py-8 text-[#f3efe8]">
+      <section className="relative overflow-hidden bg-[#FAF3E7] py-8 text-[#2d2218]">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-8rem] top-8 h-56 w-56 rounded-full bg-[#c9a36a]/8 blur-3xl" />
-          <div className="absolute right-[-6rem] top-20 h-64 w-64 rounded-full bg-[#c9a36a]/6 blur-3xl" />
-          <div className="absolute bottom-[-4rem] left-1/3 h-52 w-52 rounded-full bg-white/3 blur-3xl" />
+          <div className="absolute left-[-8rem] top-8 h-56 w-56 rounded-full bg-white/50 blur-3xl" />
+          <div className="absolute right-[-6rem] top-20 h-64 w-64 rounded-full bg-[#f1dfc5]/70 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="mb-6 flex items-end justify-between gap-4">
-            <div>
-              <p className="mb-2 text-sm font-semibold uppercase tracking-[0.35em] text-[#c9a36a]">
-                Best Sellers
-              </p>
-              <h2 className="text-4xl font-bold text-[#f8f5ef]">熱銷商品</h2>
-            </div>
+          <div className="mb-6">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.35em] text-[#b7792f]">
+              Best Sellers
+            </p>
+            <h2 className="text-4xl font-bold text-[#2d2218]">熱銷商品</h2>
           </div>
 
           {hotProductsLoading && (
-            <div className="rounded-3xl border border-white/10 bg-white/95 px-6 py-12 text-center text-lg text-gray-500 shadow-[0_16px_40px_rgba(0,0,0,0.25)]">
+            <div className="rounded-3xl border border-[#eadfcf] bg-white px-6 py-12 text-center text-lg text-gray-500 shadow-[0_12px_30px_rgba(84,58,32,0.08)]">
               載入熱銷商品中...
             </div>
           )}
 
           {!hotProductsLoading && hotProductsError && (
-            <div className="rounded-3xl border border-white/10 bg-white/95 px-6 py-12 text-center text-lg text-red-500 shadow-[0_16px_40px_rgba(0,0,0,0.25)]">
+            <div className="rounded-3xl border border-[#eadfcf] bg-white px-6 py-12 text-center text-lg text-red-500 shadow-[0_12px_30px_rgba(84,58,32,0.08)]">
               讀取熱銷商品失敗：{hotProductsError}
             </div>
           )}
@@ -147,8 +154,8 @@ function Home() {
           {!hotProductsLoading && !hotProductsError && hotProducts.length > 0 && (
             <div className="space-y-6">
               <div className="group relative">
-                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-black via-black/88 to-transparent" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-black via-black/88 to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[#FAF3E7] via-[#FAF3E7]/90 to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[#FAF3E7] via-[#FAF3E7]/90 to-transparent" />
 
                 <div className="overflow-hidden">
                   <div className="home-hot-marquee-track flex gap-6 py-2">
@@ -157,77 +164,26 @@ function Home() {
                         ? `${API_BASE_URL}${product.imageUrl}`
                         : product.image || "https://via.placeholder.com/300";
 
-                      return (
-                        <article
-                          key={`${product.id}-${index}`}
-                          className="w-[236px] shrink-0 overflow-hidden rounded-[22px] border border-black/5 bg-[#fdfbf8] shadow-[0_18px_40px_rgba(0,0,0,0.14)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_52px_rgba(0,0,0,0.2)]"
-                        >
-                          <div className="relative h-[240px] overflow-hidden bg-[#f1ece4]">
-                            <div className="absolute left-4 top-4 z-10 rounded-full border border-[#d9c3a3] bg-white/88 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8c6a3f] backdrop-blur">
-                              Hot Pick
-                            </div>
-                            <img
-                              src={imageSrc}
-                              alt={product.title || product.name || "商品圖片"}
-                              className="h-full w-full object-cover transition duration-500 hover:scale-[1.04]"
-                            />
-                          </div>
-
-                          <div className="space-y-3 p-4">
-                            <div className="space-y-2">
-                              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#a98a61]">
-                                StoryShop Selection
-                              </p>
-
-                              <h3 className="line-clamp-2 min-h-12 text-[1.05rem] font-bold leading-6 text-[#1f1a17]">
-                                {product.title || product.name}
-                              </h3>
-                            </div>
-
-                            <p className="line-clamp-2 min-h-10 text-sm leading-6 text-[#6d635a]">
-                              {product.description ||
-                                "精選鞋款，兼顧風格、舒適與日常搭配。"}
-                            </p>
-
-                            <div className="flex items-end justify-between border-t border-[#ece3d7] pt-3">
-                              <div className="space-y-1">
-                                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9f8d76]">
-                                  Price
-                                </p>
-                                <p className="text-2xl font-bold text-[#b7792f]">
-                                  NT$ {product.price || product.origin_price || 0}
-                                </p>
-                              </div>
-
-                              <span className="rounded-full bg-[#f3eadf] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6d5840]">
-                                Edit
-                              </span>
-                            </div>
-                          </div>
-                        </article>
-                      );
-                    })}
+                    return (
+                      <article
+                        key={`${product.id}-${index}`}
+                        className="w-[236px] shrink-0 overflow-hidden rounded-[22px] border border-[#eadfcf] bg-[#fdfbf8] shadow-[0_14px_32px_rgba(84,58,32,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_rgba(84,58,32,0.18)]"
+                      >
+                        <div className="relative h-[240px] overflow-hidden bg-[#f1ece4]">
+                          <img
+                            src={imageSrc}
+                            alt={product.title || product.name || "商品圖片"}
+                            className="h-full w-full object-cover transition duration-500 hover:scale-[1.04]"
+                          />
+                        </div>
+                      </article>
+                    );
+                  })}
                   </div>
                 </div>
               </div>
 
-              <div className="mx-auto max-w-4xl rounded-[28px] border border-white/10 bg-white/[0.04] px-6 py-5 text-center backdrop-blur-sm">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.32em] text-[#c9a36a]">
-                  Ready To Shop
-                </p>
-                <h3 className="text-2xl font-bold text-[#f8f5ef] md:text-3xl">
-                  現在熱賣的，不一定會等你
-                </h3>
-                <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-white/72">
-                  從日常百搭到風格鞋款，先把大家正在看的款式挑出來。下一雙，直接從這裡開始。
-                </p>
-                <Link
-                  to="/products"
-                  className="mt-5 inline-flex rounded-full border border-[#c9a36a] px-5 py-2 text-sm font-semibold text-[#f8f5ef] transition hover:bg-[#c9a36a] hover:text-black"
-                >
-                  立即逛熱銷
-                </Link>
-              </div>
+             
             </div>
           )}
         </div>
