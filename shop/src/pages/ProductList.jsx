@@ -71,77 +71,103 @@ function ProductList() {
 
   // 返回 JSX 結構
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-8 text-gray-900">商品列表</h2>
+    <>
+      <section className="bg-[#FAF3E7] px-4 py-12">
+        <div className="mx-auto max-w-5xl">
+          {/* 頁面標題 */}
+          <div className="mb-10 text-center">
+             <p className="mb-4 inline-flex rounded-full border border-[#d9b98c] bg-white/70 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#9a5b16] shadow-sm backdrop-blur">
+              Popular Products
+            </p>
+              <p className="mb-3 text-sm font-semibold tracking-[0.4em] text-[#C97A20]">
+              ProductList 
+            </p>
 
-      {loading && (
-        <div className="text-center py-16 text-lg text-gray-500">載入中...</div>
-      )}
-      {error && (
-        <div className="text-center py-16 text-lg text-red-500">
-          ❌ 錯誤: {error}
+            <h2 className="text-3xl font-black tracking-[0.12em] text-[#3A2A1A] md:text-5xl">
+              商品列表
+            </h2>
+
+            <div className="mx-auto mt-5 flex w-fit items-center gap-3">
+              <span className="h-px w-10 bg-[#cfa06f]" />
+              <span className="h-2.5 w-2.5 rounded-full border border-[#b8752d] bg-[#E9A23B]" />
+              <span className="h-px w-20 bg-[#cfa06f]" />
+            </div>
+            </div>
         </div>
-      )}
+      </section>
 
-      {!loading && !error && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products && products.length > 0 ? (
-            products.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-xl overflow-hidden shadow-md flex flex-col h-full"
-              >
-                <div className="relative overflow-hidden bg-gray-200 h-48">
-                  <img
-                    src={
-                      item.imageUrl
-                        ? `http://localhost:5000${item.imageUrl}`
-                        : item.image
-                          ? item.image
-                          : "https://via.placeholder.com/300"
-                    }
-                    alt={item.title || item.name || "商品"}
-                    className="w-full h-full object-cover"
-                  />
-                  {item.price && (
-                    <div className="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                      熱銷
-                    </div>
-                  )}
-                </div>
+      <div className="container mx-auto px-4 py-8">
+        {loading && (
+          <div className="text-center py-16 text-lg text-gray-500">
+            載入中...
+          </div>
+        )}
+        {error && (
+          <div className="text-center py-16 text-lg text-red-500">
+            ❌ 錯誤: {error}
+          </div>
+        )}
 
-                <div className="p-5 flex flex-col flex-grow">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
-                    {item.title || item.name}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">
-                    {item.description || "暫無描述"}
-                  </p>
-
-                  <div className="mt-auto pt-4 border-t border-gray-200">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-2xl font-bold text-red-600">
-                          NT$ {item.price || item.origin_price || 0}
-                        </span>
+        {!loading && !error && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {products && products.length > 0 ? (
+              products.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-white rounded-xl overflow-hidden shadow-md flex flex-col h-full"
+                >
+                  <div className="relative overflow-hidden bg-gray-200 h-48">
+                    <img
+                      src={
+                        item.imageUrl
+                          ? `http://localhost:5000${item.imageUrl}`
+                          : item.image
+                            ? item.image
+                            : "https://via.placeholder.com/300"
+                      }
+                      alt={item.title || item.name || "商品"}
+                      className="w-full h-full object-cover"
+                    />
+                    {item.price && (
+                      <div className="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        熱銷
                       </div>
-                      <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-md hover:from-yellow-500 hover:to-yellow-600 hover:shadow-lg cursor-pointer active:shadow-inner active:scale-95">
-                        <FiShoppingCart size={18} />
-                        <span>加購</span>
-                      </button>
+                    )}
+                  </div>
+
+                  <div className="p-5 flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                      {item.title || item.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">
+                      {item.description || "暫無描述"}
+                    </p>
+
+                    <div className="mt-auto pt-4 border-t border-gray-200">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className="text-2xl font-bold text-red-600">
+                            NT$ {item.price || item.origin_price || 0}
+                          </span>
+                        </div>
+                        <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-md hover:from-yellow-500 hover:to-yellow-600 hover:shadow-lg cursor-pointer active:shadow-inner active:scale-95">
+                          <FiShoppingCart size={18} />
+                          <span>加購</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-16">
+                <p className="text-gray-500 text-lg">📦 沒有商品</p>
               </div>
-            ))
-          ) : (
-            <div className="col-span-full text-center py-16">
-              <p className="text-gray-500 text-lg">📦 沒有商品</p>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

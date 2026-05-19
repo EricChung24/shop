@@ -4,12 +4,14 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ProductList from "./pages/ProductList";
 import BrandStory from "./pages/BrandStory";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 function App() {
   
 
   return (
     <>
+      <ScrollToTop />
       <Header />
      <Routes>
         <Route path="/" element={<Home />} />

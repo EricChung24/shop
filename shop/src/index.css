@@ -3,3 +3,22 @@
 body {
   font-family: "Noto Sans TC", sans-serif;
 }
+
+@keyframes home-hot-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+.home-hot-marquee-track {
+  width: max-content;
+  animation: home-hot-marquee 28s linear infinite;
+}
+
+.group:hover .home-hot-marquee-track {
+  animation-play-state: paused;
+}
