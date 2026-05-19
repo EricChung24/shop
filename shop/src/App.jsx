@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ProductList from "./pages/ProductList";
-
+import BrandStory from "./pages/BrandStory";
 
 function App() {
   
@@ -14,6 +14,7 @@ function App() {
      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />
+        <Route path="/story" element={<BrandStory />} />
       </Routes>
         <Footer />
     </>

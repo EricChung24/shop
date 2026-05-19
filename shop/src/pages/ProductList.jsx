@@ -2,8 +2,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import axios from "axios";
 // 從環境變數讀取 API 基礎 URL、路徑、授權 token
-const API_BASE = import.meta.env.VITE_API_BASE;
-const API_PATH = import.meta.env.VITE_API_PATH;
+
 const TOKEN = import.meta.env.VITE_API_TOKEN;
 // ProductList 組件函數
 function ProductList() {
@@ -16,7 +15,7 @@ function ProductList() {
 
   // 副作用鉤子，在組件掛載時執行一次
   useEffect(() => {
-    // 異步函數：取得商品列表
+    // 非同步函數：取得商品列表
     const getProducts = async () => {
       try {
         // 設定加載狀態為 true
@@ -27,7 +26,7 @@ function ProductList() {
         // 使用 axios 發送 GET 請求到 API
         const res = await axios.get(
           // 拼接完整的 API 端點：https://ec-course-api.hexschool.io/v2/api/lf2net679/admin/products
-          `${API_BASE}v2/api/${API_PATH}/admin/products`,
+          `http://localhost:5000/api/products`,
           {
             // 設定請求 header
             headers: {
@@ -90,17 +89,19 @@ function ProductList() {
             products.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full"
+                className="bg-white rounded-xl overflow-hidden shadow-md flex flex-col h-full"
               >
                 <div className="relative overflow-hidden bg-gray-200 h-48">
                   <img
                     src={
-                      item.imageUrl ||
-                      item.image ||
-                      "https://via.placeholder.com/300"
+                      item.imageUrl
+                        ? `http://localhost:5000${item.imageUrl}`
+                        : item.image
+                          ? item.image
+                          : "https://via.placeholder.com/300"
                     }
                     alt={item.title || item.name || "商品"}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                   />
                   {item.price && (
                     <div className="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -124,7 +125,7 @@ function ProductList() {
                           NT$ {item.price || item.origin_price || 0}
                         </span>
                       </div>
-                      <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-4 py-2 rounded-lg hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 transform hover:scale-105 font-semibold flex items-center gap-2 shadow-md hover:shadow-lg">
+                      <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-md hover:from-yellow-500 hover:to-yellow-600 hover:shadow-lg cursor-pointer active:shadow-inner active:scale-95">
                         <FiShoppingCart size={18} />
                         <span>加購</span>
                       </button>
