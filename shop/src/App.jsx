@@ -5,7 +5,8 @@ import Footer from "./components/layout/Footer";
 import ProductList from "./pages/ProductList";
 import BrandStory from "./pages/BrandStory";
 import ScrollToTop from "./components/common/ScrollToTop";
-import Profile from "./pages/Profile";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 function App() {
   
 
@@ -17,7 +18,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/story" element={<BrandStory />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/RegisterPage" element={<RegisterPage />} />
+        <Route path="/LoginPage" element={<LoginPage />} />
       </Routes>
         <Footer />
     </>

@@ -35,7 +35,7 @@ function Header() {
 
         {/* 右邊 */}
         <div>
-          <Link to="/profile" className="ml-auto text-gray-700 hover:text-blue-600">
+          <Link to="/LoginPage" className="ml-auto text-gray-700 hover:text-blue-600">
             <img src={avatar} width={30} height={30} alt="User Avatar" />
           </Link>
         </div>
