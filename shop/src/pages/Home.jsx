@@ -20,7 +20,7 @@ function Home() {
   const [hotProducts, setHotProducts] = useState([]);
   const [hotProductsLoading, setHotProductsLoading] = useState(true);
   const [hotProductsError, setHotProductsError] = useState("");
-
+  //首頁產品圖                                                                                                                                                                                                                                                                                   
   const products = [
     {
       id: 1,

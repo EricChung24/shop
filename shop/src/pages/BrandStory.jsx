@@ -1,182 +1,173 @@
-import storyImage from "../assets/images/story.png";
+import { FiArrowUpRight } from "react-icons/fi";
 
 function BrandStory() {
   return (
-    <div className="relative overflow-hidden bg-[#f7efe3]">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[-8rem] top-10 h-64 w-64 rounded-full bg-[#f2d7ab]/40 blur-3xl" />
-        <div className="absolute right-[-6rem] top-48 h-72 w-72 rounded-full bg-[#ddb17b]/30 blur-3xl" />
-        <div className="absolute bottom-24 left-1/3 h-52 w-52 rounded-full bg-[#fff7ec]/70 blur-3xl" />
-      </div>
+    <div className="w-full mx-auto font-['Noto_Sans_TC']">
+      {/* Hero */}
+      <section className="relative mb-[84px] overflow-hidden">
+        <img
+          className="w-full max-w-full inline-block opacity-60"
+          src="https://github.com/hexschool/2022-web-layout-training/blob/main/2025-week1/hero.png?raw=true"
+          alt="品牌故事主視覺"
+        />
 
-      <section className="relative px-4 py-12">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-10 text-center">
-            <p className="mb-4 inline-flex rounded-full border border-[#d9b98c] bg-white/70 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#9a5b16] shadow-sm backdrop-blur">
-              Editorial Feature
-            </p>
+        {/* 讓背景更柔和的白色遮罩 */}
+        <div className="absolute inset-0 bg-white/30"></div>
 
-            <p className="mb-3 text-sm font-semibold tracking-[0.4em] text-[#C97A20]">
-              BrandStory
-            </p>
+        {/* Hero Title */}
+        <div className="absolute top-[43.8%] left-1/2 -translate-x-1/2 -translate-y-1/2 mb-10 text-center">
+          <p className="mb-4 inline-flex rounded-full border border-[#d9b98c] bg-white/70 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.35em] text-[#9a5b16] shadow-sm backdrop-blur">
+            Brand Story
+          </p>
 
-            <h2 className="text-3xl font-black tracking-[0.12em] text-[#3A2A1A] md:text-5xl">
-              品牌故事
-            </h2>
+          <p className="mb-3 text-sm font-semibold tracking-[0.4em] text-[#663803]">
+            StoryShop
+          </p>
 
-            <div className="mx-auto mt-5 flex w-fit items-center gap-3">
-              <span className="h-px w-10 bg-[#cfa06f]" />
-              <span className="h-2.5 w-2.5 rounded-full border border-[#b8752d] bg-[#E9A23B]" />
-              <span className="h-px w-20 bg-[#cfa06f]" />
-            </div>
+          <h2 className="text-3xl font-black tracking-[0.12em] text-[#000000] md:text-5xl">
+            品牌故事
+          </h2>
+
+          <div className="mx-auto mt-5 flex w-fit items-center gap-3">
+            <span className="h-px w-10 bg-[#cfa06f]" />
+            <span className="h-2.5 w-2.5 rounded-full border border-[#b8752d] bg-[#E9A23B]" />
+            <span className="h-px w-20 bg-[#cfa06f]" />
           </div>
         </div>
       </section>
 
-      <div className="relative mx-auto max-w-6xl px-4 pb-16">
-        <div className="grid gap-8 rounded-[32px] border border-white/70 bg-white/80 p-6 shadow-[0_24px_80px_rgba(90,56,24,0.12)] backdrop-blur md:grid-cols-2 md:p-8">
-          <div className="relative overflow-hidden rounded-[28px] border border-[#ead7bc] bg-[#f4eadb] p-2">
-            <div className="absolute left-5 top-5 z-10 rounded-full bg-[#2f241a]/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.35em] text-[#f8efe0]">
-              Issue 01
-            </div>
+      {/* Highlight */}
+      <section className="flex flex-col justify-center items-center text-center mb-[84px]">
+        <h5 className="text-[#57A203] font-bold leading-[1.2] text-[35px] mb-[15px]">
+          走出城市的節奏，穿上自己的步調。
+        </h5>
 
-            <img
-              src={storyImage}
-              alt="StoryShop shoes"
-              className="h-72 w-full rounded-[22px] object-cover transition duration-500 hover:scale-[1.03] md:h-full"
-            />
-          </div>
+        <p className="mt-[6px] text-[20px] leading-[1.5] font-normal tracking-[0.05em]">
+          我們相信，每一雙鞋都該帶著個性出場。
+        </p>
 
-          <div className="flex flex-col justify-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#b8752d]">
-              Brand Editorial
-            </p>
+        <p className="mt-[6px] text-[20px] leading-[1.5] font-normal tracking-[0.05em]">
+          在 StoryShop，我們認為鞋履不只是穿戴飾品，更是你與世界連結的語言。
+        </p>
 
-            <h3 className="mb-5 text-2xl font-black leading-relaxed text-[#3A2A1A] md:text-[2rem]">
-              每一雙鞋，
-              <br />
-              都有屬於你的故事
-            </h3>
+        <p className="mt-[6px] text-[20px] leading-[1.5] font-normal tracking-[0.05em]">
+          融合城市結構與機能語彙，我們打造適合都會節奏的風格鞋款，陪你自信穿梭每一場風景。
+        </p>
+      </section>
 
-            <div className="mb-5 h-px w-16 bg-[#d4aa78]" />
+      {/* Brand Image */}
+      <section className="flex justify-center items-center h-screen">
+        <img
+          className="h-[717px] w-[1076px] max-w-full object-cover rounded-[10px]"
+          src="https://github.com/hexschool/2022-web-layout-training/blob/main/2025-week1/about.png?raw=true"
+          alt="品牌介紹圖片"
+        />
+      </section>
 
-            <p className="mb-4 text-[15px] leading-8 text-[#6B4A2B]">
-              StoryShop
-              不只是一個賣鞋的電商網站。我們相信，鞋子不只是穿在腳上的配件，
-              而是陪你走過生活每一段路的夥伴。
-            </p>
+      {/* Main Content */}
+      <section className="w-[856px] mx-auto text-left">
+        {/* 品牌簡介 */}
+        <h4 className="text-[28px] font-bold leading-[1.2] mb-[30px] mt-[48px]">
+          品牌簡介
+        </h4>
 
-            <p className="text-[15px] leading-8 text-[#6B4A2B]">
-              從第一次面試、第一次旅行，到每天通勤、上課與日常穿搭，
-              每一雙鞋都記錄著你的選擇、風格與生活故事。
-            </p>
-          </div>
-        </div>
+        <p className="mb-[22px] text-[20px] font-bold leading-[1.5] text-[#57A203] tracking-[0.05em]">
+          StoryShop 是來自台灣的街頭機能鞋品牌，致力於打造「風格與功能並存」的鞋履體驗。
+        </p>
 
-        <div className="relative mt-10 overflow-hidden rounded-[30px] border border-[#eadcc8] bg-[linear-gradient(135deg,rgba(255,255,255,0.88),rgba(250,241,227,0.92))] p-6 shadow-[0_18px_60px_rgba(90,56,24,0.08)] md:p-8">
-          <div className="pointer-events-none absolute right-6 top-0 text-[7rem] font-black leading-none text-[#ebd3b1]/50">
-            "
-          </div>
+        <p className="mb-[16px] text-[16px] leading-[1.5] font-normal tracking-[0.05em]">
+          在城市與日常的交錯中，我們看見了步伐的力量。StoryShop
+          誕生於一群設計師與文化觀察者的交會點——一個相信風格應該來自「真實場景」而非伸展台的團隊。從都市的清晨街角，到午後光影灑落的人行道，我們捕捉的是那些不被刻意編排的時刻，那些用一雙鞋踏出的態度與節奏。每一款鞋的誕生，不只是設計與工藝的結晶，更是一段來自城市靈感的延伸，我們相信：鞋，是穿在腳上的語言。
+        </p>
 
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.32em] text-[#b8752d]">
-            Founding Note
+        <p className="mb-[100px] text-[16px] leading-[1.5] font-normal tracking-[0.05em]">
+          StoryShop 的名字來自 Story +
+          shoe，代表著我們對每一個走進城市生活的人致敬。我們不追逐潮流，我們關注輪廓、材質、穿著者的心境與身型，創造能陪伴你走進自我節奏的經典之作。選用高品質麂皮、織物與天然橡膠大底，並與獨立插畫家、攝影師合作，打造具有街頭詩意的形象風格。StoryShop
+          相信，美不是炫耀，而是由內而外的呼吸——一雙鞋，剛好說出你心中的樣子。
+        </p>
+
+        {/* 品牌歷程 */}
+        <h4 className="text-[28px] font-bold leading-[1.2] mb-[30px]">
+          品牌歷程
+        </h4>
+
+        <ul className="list-none pl-0 mt-[1px] mb-[100px]">
+          <li className="relative pl-[20px] mb-[16px] text-[16px] tracking-[0.05em] leading-[1.2] before:content-['•'] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:text-[17px]">
+            2019｜StoryShop 在台北東區的創意工作室誕生。
+          </li>
+
+          <li className="relative pl-[20px] mb-[16px] text-[16px] tracking-[0.05em] leading-[1.2] before:content-['•'] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:text-[17px]">
+            2021｜首款【Urban Flow 系列】誕生，結合針織鞋面與城市靈感。
+          </li>
+
+          <li className="relative pl-[20px] mb-[16px] text-[16px] tracking-[0.05em] leading-[1.2] before:content-['•'] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:text-[17px]">
+            2025｜StoryShop 已成為台灣街頭生活風格的代表鞋履品牌之一。
+          </li>
+        </ul>
+
+        {/* 品牌理念 */}
+        <h4 className="text-[28px] font-bold leading-[1.2] mt-[16px] mb-[30px]">
+          品牌理念
+        </h4>
+
+        <section>
+          <p className="mb-[24px] indent-[10px] text-[16px] leading-[1.5] font-normal tracking-[0.05em]">
+            機能先行：輕量、透氣、防潑水
           </p>
 
-          <h3 className="mb-5 flex items-center gap-4 text-2xl font-black text-[#3A2A1A]">
-            <span className="h-10 w-1 rounded-full bg-[#E9A23B]" />
-            品牌緣由
-          </h3>
-
-          <div className="space-y-5 text-[15px] leading-8 text-[#6B4A2B]">
-            <p>
-              我們創立 StoryShop，是希望每個人都能在這裡找到適合自己的鞋。
-              不論你喜歡簡約百搭、街頭潮流、休閒舒適，或是具有設計感的款式，
-              我們都用心挑選每一雙鞋。
-            </p>
-
-            <p>
-              在 StoryShop，我們重視的不只是外型，更重視穿著的舒適度、
-              實用性與搭配性。因為我們知道，一雙好鞋不只要好看，
-              更要能陪你走得更遠。
-            </p>
-
-            <p className="font-semibold text-[#3A2A1A]">
-              StoryShop 代表的不只是購物，而是一段從「選擇」開始的故事。
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          <div className="group rounded-[28px] border border-[#eadcc8] bg-white/85 p-6 shadow-[0_14px_40px_rgba(90,56,24,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(90,56,24,0.14)]">
-            <div className="mb-5 flex items-center justify-between border-b border-[#ead7bc] pb-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b8752d]">
-                Chapter
-              </span>
-              <span className="text-4xl font-black italic text-[#dfbe91] transition duration-300 group-hover:text-[#b8752d]">
-                01
-              </span>
-            </div>
-
-            <h4 className="mb-3 text-xl font-black text-[#3A2A1A]">舒適好走</h4>
-
-            <p className="text-sm leading-7 text-[#6B4A2B]">
-              適合日常穿著，陪你走過通勤、上課、旅行與生活中的每一步。
-            </p>
-          </div>
-
-          <div className="group rounded-[28px] border border-[#eadcc8] bg-white/85 p-6 shadow-[0_14px_40px_rgba(90,56,24,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(90,56,24,0.14)]">
-            <div className="mb-5 flex items-center justify-between border-b border-[#ead7bc] pb-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b8752d]">
-                Chapter
-              </span>
-              <span className="text-4xl font-black italic text-[#dfbe91] transition duration-300 group-hover:text-[#b8752d]">
-                02
-              </span>
-            </div>
-
-            <h4 className="mb-3 text-xl font-black text-[#3A2A1A]">風格百搭</h4>
-
-            <p className="text-sm leading-7 text-[#6B4A2B]">
-              從簡約休閒到街頭穿搭，讓鞋子自然融入你的日常風格。
-            </p>
-          </div>
-
-          <div className="group rounded-[28px] border border-[#eadcc8] bg-white/85 p-6 shadow-[0_14px_40px_rgba(90,56,24,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(90,56,24,0.14)]">
-            <div className="mb-5 flex items-center justify-between border-b border-[#ead7bc] pb-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b8752d]">
-                Chapter
-              </span>
-              <span className="text-4xl font-black italic text-[#dfbe91] transition duration-300 group-hover:text-[#b8752d]">
-                03
-              </span>
-            </div>
-
-            <h4 className="mb-3 text-xl font-black text-[#3A2A1A]">用心選品</h4>
-
-            <p className="text-sm leading-7 text-[#6B4A2B]">
-              我們挑選實穿、好搭、有質感的鞋款，讓你更容易找到適合自己的選擇。
-            </p>
-          </div>
-        </div>
-
-        <div className="relative mt-10 overflow-hidden rounded-[32px] border border-[#d08a2f] bg-[linear-gradient(135deg,#d9912f_0%,#b96a21_45%,#8f4f18_100%)] px-6 py-8 text-center shadow-[0_24px_70px_rgba(144,86,28,0.28)]">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/40" />
-          <div className="pointer-events-none absolute left-6 top-6 h-12 w-12 rounded-full border border-white/20" />
-          <div className="pointer-events-none absolute bottom-6 right-6 h-20 w-20 rounded-full border border-white/10" />
-
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-white/80">
-            Closing Statement
+          <p className="mb-[24px] indent-[10px] text-[16px] leading-[1.5] font-normal tracking-[0.05em]">
+            美學延伸：極簡線條 + 實驗配色
           </p>
 
-          <h3 className="mb-3 text-2xl font-black text-white md:text-3xl">
-            穿上 StoryShop，走出你的故事。
-          </h3>
-
-          <p className="mx-auto max-w-2xl text-sm leading-7 text-white/90">
-            你今天穿上的那雙鞋，也許就是下一段精彩旅程的起點。
+          <p className="mb-[100px] indent-[10px] text-[16px] leading-[1.5] font-normal tracking-[0.05em]">
+            永續材料：選用環保合成皮革與可回收包裝
           </p>
-        </div>
-      </div>
+        </section>
+
+        {/* 品牌小故事 */}
+        <h4 className="text-[24px] font-bold leading-[1.2] mt-[16px] mb-[30px]">
+          品牌小故事
+        </h4>
+
+        <section>
+          <p className="flex items-center gap-1 text-[#57A203] tracking-[0.05em] mb-[1em]">
+            <FiArrowUpRight className="text-[20px]" />
+
+            <span className="inline-block underline decoration-[#57A203] underline-offset-[8px] decoration-[1px] pb-[6px] tracking-[0.05em]">
+              創辦人筆記：我們為什麼想做鞋？
+            </span>
+          </p>
+
+          <p className="flex items-center gap-1 text-[#57A203] tracking-[0.05em] mb-[1em]">
+            <FiArrowUpRight className="text-[20px]" />
+
+            <span className="inline-block underline decoration-[#57A203] underline-offset-[8px] decoration-[1px] pb-[6px] tracking-[0.05em]">
+              穿上 StoryShop 的他們
+            </span>
+          </p>
+
+          <p className="flex items-center gap-1 text-[#57A203] tracking-[0.05em] mb-[121px]">
+            <FiArrowUpRight className="text-[20px]" />
+
+            <span className="inline-block underline decoration-[#57A203] underline-offset-[8px] decoration-[1px] pb-[6px] tracking-[0.05em]">
+              StoryShop 鞋履的誕生過程
+            </span>
+          </p>
+        </section>
+      </section>
+
+      {/* Footer */}
+      <footer>
+        <section className="text-center pt-[64px] pb-[64px] px-[312px]">
+          <p className="text-[#6C757D] tracking-[0.05em] text-[14px] leading-[1.5] font-normal block">
+            Copyright ©2026 StoryShop. All rights reserved.
+          </p>
+
+          <p className="text-[#6C757D] tracking-[0.05em] text-[14px] leading-[1.5] font-normal block">
+            All Rights Reserved.
+          </p>
+        </section>
+      </footer>
     </div>
   );
 }

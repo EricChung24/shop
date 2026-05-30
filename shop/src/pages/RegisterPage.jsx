@@ -58,7 +58,7 @@ function RegisterPage() {
                 type="text"
                 placeholder="請輸入姓名"
                 className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
-              />
+               required />
             </div>
 
             {/* Email */}
@@ -66,7 +66,7 @@ function RegisterPage() {
               <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 電子信箱
               </label>
-              <input
+              <input required
                 type="email"
                 placeholder="example@gmail.com"
                 className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
@@ -78,7 +78,7 @@ function RegisterPage() {
               <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 手機號碼
               </label>
-              <input
+              <input required
                 type="tel"
                 placeholder="請輸入手機號碼"
                 className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
@@ -87,10 +87,10 @@ function RegisterPage() {
 
             {/* 密碼 */}
             <div>
-              <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
+              <label  className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 密碼
               </label>
-              <input
+              <input required
                 type="password"
                 placeholder="請輸入密碼"
                 className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
@@ -102,7 +102,7 @@ function RegisterPage() {
               <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 確認密碼
               </label>
-              <input
+              <input required
                 type="password"
                 placeholder="請再次輸入密碼"
                 className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
@@ -111,7 +111,7 @@ function RegisterPage() {
 
             {/* 同意條款 */}
             <div className="flex items-start gap-3">
-              <input
+              <input required
                 type="checkbox"
                 className="mt-1 h-4 w-4 rounded border-[#E8D7BC] accent-[#E9A23B]"
               />

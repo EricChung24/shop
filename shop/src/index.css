@@ -22,3 +22,10 @@ body {
 .group:hover .home-hot-marquee-track {
   animation-play-state: paused;
 }
+
+.container{
+  width: 1920px;
+  margin: 0 auto;
+  
+  
+}
