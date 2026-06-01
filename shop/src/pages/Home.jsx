@@ -17,6 +17,7 @@ const API_BASE_URL = "http://localhost:5000";
 const PRODUCTS_API_URL = `${API_BASE_URL}/api/products`;
 
 function Home() {
+  
   const [hotProducts, setHotProducts] = useState([]);
   const [hotProductsLoading, setHotProductsLoading] = useState(true);
   const [hotProductsError, setHotProductsError] = useState("");
@@ -85,13 +86,13 @@ function Home() {
         <h2 className="relative bottom-20 right-60 text-5xl font-bold text-white">
           Your Step, Your Statement
         </h2>
-        <button
-          type="button"
-          style={{ cursor: "pointer" }}
-          className="relative right-200 top-0 mt-6 rounded-lg bg-yellow-400 px-6 py-3 font-extrabold text-black hover:bg-yellow-300"
-        >
-          立即選購
-        </button>
+       <Link
+  to="/products"
+  style={{ cursor: "pointer" }}
+  className="relative right-200 top-0 mt-6 inline-block rounded-lg bg-yellow-400 px-6 py-3 font-extrabold text-black no-underline hover:bg-yellow-300"
+>
+  立即選購
+</Link>
       </div>
 <div className="mb-8 px-6 text-center">
       

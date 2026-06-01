@@ -1,6 +1,29 @@
-import register  from "../assets/images/register.png";
+import { useForm, useWatch } from "react-hook-form";
+import registerImg from "../assets/images/register.png";
 
 function RegisterPage() {
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
+    mode: "onChange",
+  });
+
+  const password = useWatch({
+    control,
+    name: "password",
+  });
+
+  const onSubmit = (data) => {
+    console.log("註冊資料：", data);
+  };
   return (
     <section className="min-h-screen bg-[#FAF3E7] px-4 py-12">
       <div className="mx-auto grid max-w-6xl overflow-hidden rounded-3xl bg-white shadow-lg md:grid-cols-2">
@@ -25,7 +48,7 @@ function RegisterPage() {
 
           <div className="mt-10 overflow-hidden rounded-2xl bg-white/20">
             <img
-              src={register}
+              src={registerImg}
               alt="StoryShop shoes"
               className="h-72 w-full object-cover"
             />
@@ -39,16 +62,14 @@ function RegisterPage() {
               REGISTER
             </p>
 
-            <h2 className="text-3xl font-bold text-[#3A2A1A]">
-              會員註冊
-            </h2>
+            <h2 className="text-3xl font-bold text-[#3A2A1A]">會員註冊</h2>
 
             <p className="mt-3 text-sm leading-6 text-[#6B4A2B]">
               建立你的 StoryShop 帳號，開始探索適合你的鞋款。
             </p>
           </div>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
             {/* 姓名 */}
             <div>
               <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
@@ -57,8 +78,25 @@ function RegisterPage() {
               <input
                 type="text"
                 placeholder="請輸入姓名"
-                className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
-               required />
+                {...register("name", {
+                  required: "姓名必填",
+                })}
+                className={`
+    w-full rounded-xl border bg-[#FFFDF8] px-4 py-3 text-sm outline-none
+    focus:ring-2
+    ${
+      errors.name
+        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+        : "border-[#E8D7BC] focus:border-[#E9A23B] focus:ring-[#E9A23B]/20"
+    }
+  `}
+              />
+
+              {errors.name && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.name.message}
+                </p>
+              )}
             </div>
 
             {/* Email */}
@@ -66,11 +104,32 @@ function RegisterPage() {
               <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 電子信箱
               </label>
-              <input required
+              <input
                 type="email"
                 placeholder="example@gmail.com"
-                className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
+                {...register("email", {
+                  required: "Email必填",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "請輸入有效的電子信箱",
+                  },
+                })}
+                className={`
+    w-full rounded-xl border bg-[#FFFDF8] px-4 py-3 text-sm outline-none
+    focus:ring-2
+    ${
+      errors.email
+        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+        : "border-[#E8D7BC] focus:border-[#E9A23B] focus:ring-[#E9A23B]/20"
+    }
+  `}
               />
+
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             {/* 手機 */}
@@ -78,23 +137,66 @@ function RegisterPage() {
               <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 手機號碼
               </label>
-              <input required
+              <input
                 type="tel"
                 placeholder="請輸入手機號碼"
-                className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
+                {...register("tel", {
+                  required: "手機號碼必填",
+                  pattern: {
+                    value: /^[0-9]{10}$/,
+                    message: "請輸入有效的手機號碼",
+                  },
+                })}
+                className={`
+    w-full rounded-xl border bg-[#FFFDF8] px-4 py-3 text-sm outline-none
+    focus:ring-2
+    ${
+      errors.tel
+        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+        : "border-[#E8D7BC] focus:border-[#E9A23B] focus:ring-[#E9A23B]/20"
+    }
+  `}
               />
+
+              {errors.tel && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.tel.message}
+                </p>
+              )}
             </div>
 
             {/* 密碼 */}
             <div>
-              <label  className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
+              <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 密碼
               </label>
-              <input required
+              <input
+                required
                 type="password"
                 placeholder="請輸入密碼"
-                className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
+                {...register("password", {
+                  required: "密碼必填",
+                  minLength: {
+                    value: 6,
+                    message: "密碼長度至少為 6 碼",
+                  },
+                })}
+                className={`
+    w-full rounded-xl border bg-[#FFFDF8] px-4 py-3 text-sm outline-none
+    focus:ring-2
+    ${
+      errors.password
+        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+        : "border-[#E8D7BC] focus:border-[#E9A23B] focus:ring-[#E9A23B]/20"
+    }
+  `}
               />
+
+              {errors.password && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
 
             {/* 確認密碼 */}
@@ -102,16 +204,35 @@ function RegisterPage() {
               <label className="mb-2 block text-sm font-semibold text-[#3A2A1A]">
                 確認密碼
               </label>
-              <input required
+              <input
                 type="password"
                 placeholder="請再次輸入密碼"
-                className="w-full rounded-xl border border-[#E8D7BC] bg-[#FFFDF8] px-4 py-3 text-sm outline-none focus:border-[#E9A23B] focus:ring-2 focus:ring-[#E9A23B]/20"
+                {...register("confirmPassword", {
+                  required: "確認密碼必填",
+                  validate: (value) => value === password || "密碼不相符",
+                })}
+                className={`
+    w-full rounded-xl border bg-[#FFFDF8] px-4 py-3 text-sm outline-none
+    focus:ring-2
+    ${
+      errors.confirmPassword
+        ? "border-red-500 focus:border-red-500 focus:ring-red-200"
+        : "border-[#E8D7BC] focus:border-[#E9A23B] focus:ring-[#E9A23B]/20"
+    }
+  `}
               />
+
+              {errors.confirmPassword && (
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.confirmPassword.message}
+                </p>
+              )}
             </div>
 
             {/* 同意條款 */}
             <div className="flex items-start gap-3">
-              <input required
+              <input
+                required
                 type="checkbox"
                 className="mt-1 h-4 w-4 rounded border-[#E8D7BC] accent-[#E9A23B]"
               />
@@ -132,7 +253,10 @@ function RegisterPage() {
           {/* 登入提示 */}
           <p className="mt-6 text-center text-sm text-[#6B4A2B]">
             已經有帳號了？
-            <a href="/LoginPage" className="ml-1 font-semibold text-[#C97A20] hover:underline">
+            <a
+              href="/LoginPage"
+              className="ml-1 font-semibold text-[#C97A20] hover:underline"
+            >
               前往登入
             </a>
           </p>
