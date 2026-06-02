@@ -24,28 +24,7 @@ function LoginPage() {
             </p>
           </div>
 
-          <div className="grid gap-3 text-sm md:grid-cols-2">
-            <div className="rounded-2xl bg-white/14 px-4 py-4 backdrop-blur-sm">
-              <p className="mb-2 font-bold text-white">快速收藏</p>
-              <p className="leading-6 text-white/85">
-                先留下喜歡的鞋款，之後回來比較更省時間。
-              </p>
-            </div>
 
-            <div className="rounded-2xl bg-white/14 px-4 py-4 backdrop-blur-sm">
-              <p className="mb-2 font-bold text-white">訂單追蹤</p>
-              <p className="leading-6 text-white/85">
-                重要進度一眼就能看到，不用反覆查找。
-              </p>
-            </div>
-
-            <div className="rounded-2xl bg-white/14 px-4 py-4 backdrop-blur-sm md:col-span-2">
-              <p className="mb-2 font-bold text-white">風格持續累積</p>
-              <p className="leading-6 text-white/85">
-                從日常百搭到個性穿搭，把你真正會回頭看的鞋款都留在同一個地方。
-              </p>
-            </div>
-          </div>
 
           <div className="overflow-hidden rounded-[28px] border border-white/20 bg-white/18">
             <img
